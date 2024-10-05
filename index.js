@@ -74,16 +74,18 @@ function Start() {
 
 function Update() {
     if (parado) return;
+    ActualizarPosiciones();
+    DetectarColision();
+    velY -= gravedad * deltaTime;
+}
 
+function ActualizarPosiciones(){
     MoverDinosaurio();
     MoverSuelo();
     DecidirCrearObstaculos();
     DecidirCrearNubes();
     MoverObstaculos();
     MoverNubes();
-    DetectarColision();
-
-    velY -= gravedad * deltaTime;
 }
 
 function HandleKeyDown(ev) {
@@ -220,16 +222,14 @@ function GameOver() {
 }
 
 function DetectarColision() {
-    for (var i = 0; i < obstaculos.length; i++) {
-        if (obstaculos[i].posX > dinoPosX + dino.clientWidth) {
-            break; // al estar en orden, no puede chocar con más
-        } else {
-            if (IsCollision(dino, obstaculos[i], 10, 30, 15, 20)) {
+    for (let obstaculo of obstaculos) {
+        if (obstaculo.posX <= dinoPosX + dino.clientWidth &&
+            IsCollision(dino, obstaculo, 10, 30, 15, 20)) {
                 GameOver();
+                break;
             }
         }
     }
-}
 
 function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft) {
     var aRect = a.getBoundingClientRect();
