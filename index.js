@@ -172,28 +172,30 @@ function CrearNube() {
 }
 
 function MoverObstaculos() {
-    for (var i = obstaculos.length - 1; i >= 0; i--) {
-        if (obstaculos[i].posX < -obstaculos[i].clientWidth) {
-            obstaculos[i].parentNode.removeChild(obstaculos[i]);
-            obstaculos.splice(i, 1);
+    obstaculos = obstaculos.filter(obstaculo => {
+        if (obstaculo.posX < -obstaculo.clientWidth) {
+            obstaculo.remove();
             GanarPuntos();
+            return false;
         } else {
-            obstaculos[i].posX -= CalcularDesplazamiento();
-            obstaculos[i].style.left = obstaculos[i].posX + "px";
+            obstaculo.posX -= CalcularDesplazamiento();
+            obstaculo.style.left = obstaculo.posX + "px";
         }
-    }
+    });
 }
 
+
 function MoverNubes() {
-    for (var i = nubes.length - 1; i >= 0; i--) {
-        if (nubes[i].posX < -nubes[i].clientWidth) {
-            nubes[i].parentNode.removeChild(nubes[i]);
-            nubes.splice(i, 1);
+    nubes = nubes.filter(nube => {
+        if (nube.posX < -nube.clientWidth) {
+            nube.remove();
+            return false;
         } else {
-            nubes[i].posX -= CalcularDesplazamiento() * velNube;
-            nubes[i].style.left = nubes[i].posX + "px";
+            nube.posX -= CalcularDesplazamiento() * velNube;
+            nube.style.left = nube.posX + "px";
+            return true;
         }
-    }
+    });
 }
 
 function GanarPuntos() {
