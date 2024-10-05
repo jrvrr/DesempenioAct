@@ -250,11 +250,14 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
 }
 
 function ReiniciarJuego() { //actualizacion
+    parado = true;
+
     gameOver.style.display = "none";
     obstaculos.forEach(obstaculo => obstaculo.remove());
     obstaculos = [];
 
     nubes.forEach(nube => nube.remove());
+    nubes = [];
 
     score = 0; 
     textoScore.innerText = score;
