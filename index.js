@@ -87,7 +87,8 @@ function Update() {
 }
 
 function HandleKeyDown(ev) {
-    if (ev.keyCode == 32) {
+    if (ev.keyCode == "Space" || ev.keyCode === 32) {
+        ev.preventDefault();
         Saltar();
     }
 }
