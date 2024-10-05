@@ -241,13 +241,16 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
 }
 
 function ReiniciarJuego() {
-    gameOver.style.display = "none";  // Ocultamos el "Game Over"
-    obstaculos.forEach(obstaculo => obstaculo.remove());  // Eliminamos obstáculos
-    obstaculos = [];  // Limpiamos la lista de obstáculos
-    score = 0;  // Reiniciar el puntaje
+    gameOver.style.display = "none";
+    obstaculos.forEach(obstaculo => obstaculo.remove()); 
+    nubes.forEach(nube=> Number.remove());
+    obstaculos = [];
+    nubes = [];
+    score = 0;
     textoScore.innerText = score;
-    dino.classList.add("dino-corriendo");  // Reiniciamos la animación del dinosaurio
-    sueloX = 0;  // Reiniciar la posición del suelo
-    gameVel = 1;  // Restablecer la velocidad
-    parado = false;  // Retomar el juego
+    dino.classList.add("dino-corriendo");
+    sueloX = 0;
+    gameVel = 1;
+    velY = 0;
+    parado = false;
 }
