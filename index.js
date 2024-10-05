@@ -220,7 +220,9 @@ function GanarPuntos() {
 }
 
 function GameOver() {
-    Estrellarse();
+    parado = true;
+    dino.classList.remove("dino-corriendo");
+    dino.classList.add("dino-estrellado"); 
     gameOver.style.display = "block";
 }
 
@@ -270,3 +272,13 @@ function ReiniciarJuego() { //actualizacion
     time = new Date();
     requestAnimationFrame(Loop);
 }
+
+document.addEventListener("keydown", function(envent){
+    if(event.code === "Space"){
+        if (parado){
+            ReiniciarJuego();
+        }else{
+            Saltar();
+        }
+    }
+});
