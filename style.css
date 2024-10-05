@@ -11,13 +11,17 @@ body{
 }
 
 .contenedor {
+<<<<<<< HEAD
     width: 1008px;
+=======
+    width: 100px;
+>>>>>>> a59c1a0b905bcfdd5f5f7af62732ce5727311c79
     height: 320px;
     margin: 0 auto;
     
     position: relative;
 
-    background: linear-gradient(#b7d6c7, transparent) #ffe2d1;/*linear-gradient(#90ebff, white);*/
+    background: linear-gradient(#b7d6c7, transparent) #ffe2d1;
     transition: background-color 1s linear;
     overflow: hidden;
 }
@@ -35,8 +39,13 @@ body{
 }
 
 .dino {
+<<<<<<< HEAD
     width: 80px;
     height: 80px;
+=======
+    width: 70px;
+    height: 70px;
+>>>>>>> a59c1a0b905bcfdd5f5f7af62732ce5727311c79
 
     position: absolute;
     bottom: 22px;
